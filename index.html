@@ -1,37 +1,348 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clearbound — Cyber Underwriting Intelligence for Brokers</title>
-<meta name="description" content="Clearbound is a continuously learning intelligence platform for cyber brokers — turning carrier updates, underwriting guides, and real placement outcomes into actionable submission-time guidance.">
-<link href="https://cdn.jsdelivr.net/gh/niccolopaganini/satoshi-font@main/fonts/webfonts/satoshi.css" rel="stylesheet">
+<title>Clearbound â Cyber Underwriting Intelligence for Brokers</title>
+<meta name="description" content="Clearbound is a continuously learning intelligence platform for cyber brokers â turning carrier updates, underwriting guides, and real placement outcomes into actionable submission-time guidance.">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#FAFAF8;--card:#FFFFFF;--muted:#F7F7F5;--hover:#F5F5F2;
-  --border:#E8E6E1;--borderL:#F0EEEA;
-  --text:#1A1A1A;--text2:#6B6B6B;--text3:#9B9B9B;
-  --blue:#2563EB;--blueS:#EFF6FF;--blueB:#BFDBFE;
-  --green:#16A34A;--greenS:#F0FDF4;--greenB:#BBF7D0;
-  --amber:#D97706;--amberS:#FFFBEB;--amberB:#FDE68A;
-  --red:#DC2626;--purple:#7C3AED;--purpleS:#F5F3FF;
-  --font:'Satoshi',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --shadow:0 1px 3px rgba(0,0,0,0.04),0 1px 2px rgba(0,0,0,0.02);
-  --shadowMd:0 4px 16px rgba(0,0,0,0.06),0 1px 3px rgba(0,0,0,0.04);
+  --bg:#FAF8F5;--card:#FFFFFF;--muted:#F5F2ED;--hover:#F0EDE8;
+  --border:#E0DBD3;--borderL:#EBE7E0;
+  --ink:#1A1815;--ink2:#5C574E;--ink3:#9A9389;
+  --blue:#1E4DD8;--blueS:#EDF1FC;--blueB:#C5D1F2;
+  --green:#1A7A3D;--greenS:#EDF7F0;--greenB:#B8E0C5;
+  --amber:#B8860B;--amberS:#FDF6E8;--amberB:#F0DBA8;
+  --red:#B83230;--redS:#FCF0F0;
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --accent:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --shadow:0 1px 2px rgba(26,24,21,0.04);
+  --shadowMd:0 4px 20px rgba(26,24,21,0.06);
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.65}
+::selection{background:var(--blueS);color:var(--blue)}
+.sc{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3)}
+.rule{border:none;border-top:1px solid var(--border);margin:0}
 
-/* Nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,248,0.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1120px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:12px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:14px 40px;display:flex;align-items:center}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-mark{width:28px;height:28px;border-radius:8px;background:var(--text);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:800}
-.logo-text{font-size:16px;font-weight:700;color:var(--text);letter-spacing:-0.02em}
-.nav-links{display:flex;gap:28px;margin-left:auto;align-items:center}
-.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;font-weight:500;transition:color 0.15s}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{padding:8px 18px;background:var(--text);color:#fff;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity 0.15s}
-.nav-cta:hover{opacity:0.85}
+.logo-mark{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);line-height:1}
+.logo-text{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--ink);letter-spacing:0.02em}
+.nav-links{display:flex;gap:32px;margin-left:auto;align-items:center}
+.nav-links a{font-size:12.5px;color:var(--ink2);text-decoration:none;font-weight:500;letter-spacing:0.01em;transition:color 0.15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{padding:8px 20px;background:var(--ink);color:var(--bg)!important;border-radius:4px;font-size:12px;font-weight:600;letter-spacing:0.02em;transition:opacity 0.15s}
+.nav-cta:hover{opacity:0.82}
 
-TEST_REPLACE
+.hero{padding:160px 40px 72px;max-width:900px;margin:0 auto;text-align:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;margin-bottom:32px}
+.hero-eyebrow .sc{color:var(--blue)}
+.hero-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);animation:pulse 2.5s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-family:var(--serif);font-size:62px;font-weight:400;line-height:1.1;letter-spacing:-0.02em;color:var(--ink);margin-bottom:24px}
+.hero h1 em{font-style:italic;color:var(--blue)}
+.hero-sub{font-family:var(--accent);font-size:20px;line-height:1.7;color:var(--ink2);max-width:560px;margin:0 auto 36px;font-weight:400}
+.hero-ctas{display:flex;gap:14px;justify-content:center}
+.btn-primary{padding:13px 32px;background:var(--ink);color:var(--bg);border-radius:4px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.02em;text-decoration:none;transition:all 0.15s;border:none;cursor:pointer}
+.btn-primary:hover{opacity:0.82;transform:translateY(-1px)}
+.btn-secondary{padding:13px 32px;background:transparent;color:var(--ink);border:1px solid var(--border);border-radius:4px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.02em;text-decoration:none;transition:all 0.15s}
+.btn-secondary:hover{border-color:var(--ink);background:var(--hover)}
+
+.preview-section{max-width:980px;margin:0 auto;padding:0 40px}
+.preview-frame{background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 24px 80px rgba(26,24,21,0.08),0 1px 3px rgba(26,24,21,0.04);overflow:hidden}
+.preview-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--borderL);background:var(--muted)}
+.preview-dot{width:9px;height:9px;border-radius:50%}
+.preview-url{flex:1;text-align:center;font-size:10px;color:var(--ink3);font-family:var(--sans);letter-spacing:0.02em}
+.preview-body{padding:20px;display:flex;gap:16px;min-height:340px}
+.preview-side{width:140px;flex-shrink:0;display:flex;flex-direction:column;gap:1px}
+.preview-item{padding:6px 9px;border-radius:4px;font-size:11px;color:var(--ink2);font-family:var(--sans);display:flex;align-items:center;gap:7px}
+.preview-item.active{background:var(--muted);color:var(--ink);font-weight:600}
+.preview-item-dot{width:6px;height:6px;border-radius:2px;background:var(--borderL)}
+.preview-item.active .preview-item-dot{background:var(--ink)}
+.preview-main{flex:1;display:flex;flex-direction:column;gap:12px}
+.preview-stats{display:flex;gap:10px}
+.preview-stat{flex:1;padding:10px;border-radius:6px;background:var(--muted);border:1px solid var(--borderL)}
+.preview-stat-label{font-size:8px;font-family:var(--sans);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3)}
+.preview-stat-val{font-size:20px;font-weight:700;font-family:var(--sans);margin-top:2px}
+.preview-alert{padding:10px 12px;border-radius:6px;background:var(--amberS);border:1px solid var(--amberB);display:flex;align-items:center;gap:7px}
+.preview-alert-dot{width:5px;height:5px;border-radius:50%;background:var(--amber)}
+.preview-alert span{font-size:11px;font-family:var(--sans)}
+.preview-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.preview-card{padding:10px;border-radius:6px;background:var(--card);border:1px solid var(--border)}
+.preview-card-title{font-size:10px;font-weight:600;font-family:var(--sans);color:var(--ink);margin-bottom:6px;letter-spacing:0.02em}
+.preview-row{display:flex;align-items:center;gap:5px;padding:3px 0;border-bottom:1px solid var(--borderL);font-size:10px;font-family:var(--sans)}
+.preview-badge{padding:1px 5px;border-radius:3px;font-size:7.5px;font-weight:600;letter-spacing:0.03em}
+
+.section-divider{max-width:1100px;margin:0 auto;padding:0 40px}
+.section{padding:80px 40px;max-width:1100px;margin:0 auto}
+.section-head{margin-bottom:48px}
+.section-head .sc{margin-bottom:14px;display:block}
+.section-head h2{font-family:var(--serif);font-size:40px;font-weight:400;line-height:1.15;letter-spacing:-0.015em}
+.section-head h2 em{font-style:italic}
+.section-head p{font-family:var(--accent);font-size:17px;color:var(--ink2);margin-top:12px;max-width:520px;line-height:1.65;font-weight:400}
+
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.problem-cell{padding:28px 30px;background:var(--card);transition:background 0.15s}
+.problem-cell:hover{background:var(--muted)}
+.problem-num{font-family:var(--accent);font-size:28px;color:var(--borderL);font-weight:600;margin-bottom:10px}
+.problem-cell h3{font-family:var(--serif);font-size:19px;font-weight:400;margin-bottom:6px;line-height:1.3}
+.problem-cell p{font-size:13px;color:var(--ink2);line-height:1.6}
+
+.features{display:flex;flex-direction:column;gap:0}
+.feature{display:flex;align-items:stretch;border-bottom:1px solid var(--border);padding:28px 0;transition:all 0.2s}
+.feature:first-child{border-top:1px solid var(--border)}
+.feature:hover{padding-left:8px}
+.feature-num{font-family:var(--accent);font-size:14px;color:var(--ink3);width:40px;flex-shrink:0;padding-top:2px;font-weight:500}
+.feature-color{width:3px;border-radius:2px;flex-shrink:0;margin-right:20px}
+.feature-body{flex:1}
+.feature-body h3{font-family:var(--serif);font-size:21px;font-weight:400;margin-bottom:5px;line-height:1.3}
+.feature-body p{font-size:13.5px;color:var(--ink2);line-height:1.65;max-width:600px}
+
+.steps{display:flex;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--border)}
+.step{flex:1;background:var(--card);padding:32px 24px;text-align:center}
+.step+.step{border-left:1px solid var(--border)}
+.step-num{font-family:var(--accent);font-size:36px;font-weight:600;color:var(--borderL);margin-bottom:12px}
+.step h3{font-family:var(--serif);font-size:18px;font-weight:400;margin-bottom:6px}
+.step p{font-size:12.5px;color:var(--ink2);line-height:1.6}
+
+.metrics{display:flex;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--border)}
+.metric{flex:1;background:var(--card);padding:32px 16px;text-align:center}
+.metric+.metric{border-left:1px solid var(--border)}
+.metric-val{font-family:var(--serif);font-size:36px;font-weight:400;line-height:1}
+.metric-label{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--ink);margin-top:10px;letter-spacing:0.01em}
+.metric-sub{font-size:11px;color:var(--ink3);margin-top:3px}
+
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.trust-cell{padding:24px 26px;background:var(--card);display:flex;gap:14px;align-items:flex-start;transition:background 0.15s}
+.trust-cell:hover{background:var(--muted)}
+.trust-icon{font-size:18px;flex-shrink:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;background:var(--muted)}
+.trust-cell h3{font-family:var(--serif);font-size:16px;font-weight:400;margin-bottom:4px}
+.trust-cell p{font-size:12px;color:var(--ink2);line-height:1.55}
+
+.quote-section{padding:64px 40px;max-width:780px;margin:0 auto;text-align:center}
+.quote-rule{width:40px;height:1px;background:var(--border);margin:0 auto 28px}
+.quote{font-family:var(--serif);font-size:26px;font-weight:400;font-style:italic;line-height:1.45;color:var(--ink)}
+
+.cta-section{padding:80px 40px 100px}
+.cta-box{max-width:660px;margin:0 auto;padding:52px 48px;border-radius:8px;background:var(--ink);color:var(--bg);text-align:center;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:-80px;right:-80px;width:200px;height:200px;border-radius:50%;border:1px solid rgba(255,255,255,0.06)}
+.cta-box::after{content:'';position:absolute;bottom:-60px;left:-40px;width:160px;height:160px;border-radius:50%;border:1px solid rgba(255,255,255,0.04)}
+.cta-box h2{font-family:var(--serif);font-size:34px;font-weight:400;font-style:italic;margin-bottom:14px;line-height:1.2;color:var(--bg);position:relative}
+.cta-box p{font-family:var(--accent);font-size:16px;color:rgba(250,248,245,0.5);margin-bottom:32px;line-height:1.7;position:relative}
+.cta-box .btn-primary{background:var(--bg);color:var(--ink);position:relative}
+.cta-box .btn-primary:hover{opacity:0.9}
+.cta-contact{margin-top:20px;position:relative}
+.cta-contact a{font-family:var(--sans);font-size:12px;color:rgba(250,248,245,0.35);text-decoration:none;letter-spacing:0.02em}
+
+footer{padding:28px 40px;border-top:1px solid var(--border)}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:11px;color:var(--ink3)}
+.footer-right{font-family:var(--serif);font-style:italic;font-size:12px;color:var(--ink3)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;animation:fadeUp 0.5s ease forwards}
+.d1{animation-delay:0.08s}.d2{animation-delay:0.16s}.d3{animation-delay:0.24s}.d4{animation-delay:0.32s}
+
+@media(max-width:768px){
+  .hero{padding:120px 24px 56px}
+  .hero h1{font-size:36px}
+  .hero-sub{font-size:17px}
+  .section{padding:56px 24px}
+  .problem-grid,.trust-grid,.preview-cards{grid-template-columns:1fr}
+  .steps,.metrics{flex-direction:column}
+  .step+.step,.metric+.metric{border-left:none;border-top:1px solid var(--border)}
+  .preview-body{flex-direction:column}
+  .preview-side{display:none}
+  .hero-ctas{flex-direction:column;align-items:center}
+  .nav-links a:not(.nav-cta){display:none}
+  .nav-inner,.section-divider,.preview-section{padding-left:24px;padding-right:24px}
+  .cta-box{padding:36px 28px}
+  .footer-right{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">C</span>
+      <span class="logo-text">Clearbound</span>
+    </a>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
+      <a href="#how">How it works</a>
+      <a href="#trust">Trust</a>
+      <a href="#pilot" class="nav-cta">Request a pilot</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero fade-up">
+  <div class="hero-eyebrow">
+    <span class="hero-dot"></span>
+    <span class="sc" style="color:var(--blue)">Now accepting pilot partners</span>
+  </div>
+  <h1>Know what changed.<br><em>Submit with confidence.</em></h1>
+  <p class="hero-sub">A continuously learning intelligence layer for cyber brokers â turning carrier updates, underwriting guides, and real placement outcomes into actionable guidance at submission time.</p>
+  <div class="hero-ctas">
+    <a href="#pilot" class="btn-primary">Request a pilot</a>
+    <a href="#solution" class="btn-secondary">See how it works</a>
+  </div>
+</section>
+
+<div class="preview-section fade-up d2">
+  <div class="preview-frame">
+    <div class="preview-bar">
+      <div class="preview-dot" style="background:#E8685A"></div>
+      <div class="preview-dot" style="background:#F0B840"></div>
+      <div class="preview-dot" style="background:#62C554"></div>
+      <div class="preview-url">clearbound.to</div>
+    </div>
+    <div class="preview-body">
+      <div class="preview-side">
+        <div class="preview-item active"><div class="preview-item-dot"></div>Dashboard</div>
+        <div class="preview-item"><div class="preview-item-dot"></div>Appetite match</div>
+        <div class="preview-item"><div class="preview-item-dot"></div>Readiness score</div>
+        <div class="preview-item"><div class="preview-item-dot"></div>Changes</div>
+        <div class="preview-item"><div class="preview-item-dot"></div>Outcomes</div>
+        <div class="preview-item"><div class="preview-item-dot"></div>Practice group</div>
+      </div>
+      <div class="preview-main">
+        <div class="preview-stats">
+          <div class="preview-stat"><div class="preview-stat-label">Carriers</div><div class="preview-stat-val">8</div></div>
+          <div class="preview-stat"><div class="preview-stat-label">Hit rate</div><div class="preview-stat-val" style="color:var(--green)">63%</div></div>
+          <div class="preview-stat"><div class="preview-stat-label">Decline rate</div><div class="preview-stat-val" style="color:var(--red)">37%</div></div>
+          <div class="preview-stat"><div class="preview-stat-label">Changes</div><div class="preview-stat-val" style="color:var(--amber)">6</div></div>
+        </div>
+        <div class="preview-alert">
+          <div class="preview-alert-dot"></div>
+          <span style="font-weight:600;color:var(--amber)">Action required</span>
+          <span style="color:var(--ink2)">â Travelers excluded SaaS â¥$3M. Hartford tightened MFA.</span>
+        </div>
+        <div class="preview-cards">
+          <div class="preview-card">
+            <div class="preview-card-title">Recent outcomes</div>
+            <div class="preview-row"><span class="preview-badge" style="color:var(--red);background:var(--redS)">declined</span><span style="flex:1;color:var(--ink)">TechCorp SaaS</span></div>
+            <div class="preview-row"><span class="preview-badge" style="color:var(--amber);background:var(--amberS)">quoted</span><span style="flex:1;color:var(--ink)">CloudBase</span><span style="color:var(--green);font-weight:600">$42,500</span></div>
+            <div class="preview-row"><span class="preview-badge" style="color:var(--green);background:var(--greenS)">bound</span><span style="flex:1;color:var(--ink)">RetailChain POS</span><span style="color:var(--green);font-weight:600">$18,200</span></div>
+          </div>
+          <div class="preview-card">
+            <div class="preview-card-title">Carrier appetite</div>
+            <div class="preview-row"><span style="font-weight:600;color:var(--ink);width:50px">Beazley</span><span class="preview-badge" style="color:var(--ink3);background:var(--muted)">specialty</span><span style="flex:1"></span><span style="font-weight:600;color:var(--green)">95</span></div>
+            <div class="preview-row"><span style="font-weight:600;color:var(--ink);width:50px">Chubb</span><span class="preview-badge" style="color:var(--ink3);background:var(--muted)">preferred</span><span style="flex:1"></span><span style="font-weight:600;color:var(--green)">92</span></div>
+            <div class="preview-row"><span style="font-weight:600;color:var(--ink);width:50px">Coalition</span><span class="preview-badge" style="color:var(--ink3);background:var(--muted)">tech-fwd</span><span style="flex:1"></span><span style="font-weight:600;color:var(--blue)">88</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"><hr class="rule" style="margin-top:80px"></div>
+<section class="section" id="problem">
+  <div class="section-head">
+    <span class="sc">The problem</span>
+    <h2>Carrier appetite changes constantly.<br><em>Broker workflows haven't.</em></h2>
+    <p>Updates live in emails, PDFs, portals, and individual memory â making it impossible to know what underwriters will actually accept today.</p>
+  </div>
+  <div class="problem-grid">
+    <div class="problem-cell fade-up"><div class="problem-num">01</div><h3>Wasted submissions</h3><p>Risks sent to carriers who quietly tightened appetite weeks ago. Producer time lost. Underwriter patience spent.</p></div>
+    <div class="problem-cell fade-up d1"><div class="problem-num">02</div><h3>Burned UW relationships</h3><p>Repeated mismatched submissions erode carrier trust and reduce responsiveness on future placements.</p></div>
+    <div class="problem-cell fade-up d2"><div class="problem-num">03</div><h3>Renewal surprises</h3><p>Appetite shifts surface at renewal, not before â leaving brokers scrambling with no time to remarket.</p></div>
+    <div class="problem-cell fade-up d3"><div class="problem-num">04</div><h3>Tribal knowledge</h3><p>Critical placement intelligence lives in one producer's head. When they leave, the knowledge walks out the door.</p></div>
+  </div>
+</section>
+
+<div class="section-divider"><hr class="rule"></div>
+<section class="section" id="solution">
+  <div class="section-head">
+    <span class="sc">The solution</span>
+    <h2>Underwriting intelligence,<br><em>not another system of record.</em></h2>
+    <p>Clearbound sits above your AMS. We don't replace existing tools â we capture the signal that normally lives in inboxes and memory.</p>
+  </div>
+  <div class="features">
+    <div class="feature fade-up"><div class="feature-num">I</div><div class="feature-color" style="background:var(--blue)"></div><div class="feature-body"><h3>Guideline change detection</h3><p>Automatically tracks carrier guide updates. Surfaces only what materially changed â new requirements, tightened thresholds, relaxed controls. Plain-English action guidance, delivered before the next submission.</p></div></div>
+    <div class="feature fade-up d1"><div class="feature-num">II</div><div class="feature-color" style="background:var(--green)"></div><div class="feature-body"><h3>Carrier appetite matching</h3><p>Maps a cyber risk profile to a ranked carrier shortlist based on stated guidelines and observed market behaviour. Includes rationale and confidence scoring for every recommendation.</p></div></div>
+    <div class="feature fade-up d2"><div class="feature-num">III</div><div class="feature-color" style="background:var(--amber)"></div><div class="feature-body"><h3>Submission readiness scoring</h3><p>Scores your submission 0â100 before it goes out. Flags missing controls, unrealistic limits, and documentation gaps â so your producer knows exactly what to fix.</p></div></div>
+    <div class="feature fade-up d3"><div class="feature-num">IV</div><div class="feature-color" style="background:var(--ink)"></div><div class="feature-body"><h3>Market-reality calibration</h3><p>Learns from outcomes â declines, quotes, binds, and underwriter feedback â to distinguish written guidelines from how carriers actually behave in practice. This is the moat.</p></div></div>
+  </div>
+</section>
+
+<div class="section-divider"><hr class="rule"></div>
+<section class="section" id="how">
+  <div class="section-head">
+    <span class="sc">How it works</span>
+    <h2>Designed for your <em>existing workflow.</em></h2>
+    <p>No rip-and-replace. Start with the carrier guides and updates your team already has.</p>
+  </div>
+  <div class="steps">
+    <div class="step fade-up"><div class="step-num">01</div><h3>Ingest signals</h3><p>Upload carrier underwriting guides, appetite updates, and communications your team already has.</p></div>
+    <div class="step fade-up d1"><div class="step-num">02</div><h3>Detect what changed</h3><p>AI-powered diff engine compares versions, surfaces material shifts, and classifies severity.</p></div>
+    <div class="step fade-up d2"><div class="step-num">03</div><h3>Recommend action</h3><p>Rank carriers, score readiness, and explain the rationale â so producers act with confidence.</p></div>
+  </div>
+</section>
+
+<div class="section-divider"><hr class="rule"></div>
+<section class="section">
+  <div class="section-head">
+    <span class="sc">Measurable value</span>
+    <h2>Clear ROI <em>from day one.</em></h2>
+    <p>We define success metrics up front and measure them throughout the pilot.</p>
+  </div>
+  <div class="metrics">
+    <div class="metric fade-up"><div class="metric-val" style="color:var(--green)">+10â20%</div><div class="metric-label">Hit rate improvement</div><div class="metric-sub">More quotes per submission</div></div>
+    <div class="metric fade-up d1"><div class="metric-val" style="color:var(--blue)">30â50%</div><div class="metric-label">Fewer wasted submissions</div><div class="metric-sub">Preserved UW relationships</div></div>
+    <div class="metric fade-up d2"><div class="metric-val" style="color:var(--ink)">2â3 hrs</div><div class="metric-label">Saved per submission</div><div class="metric-sub">No more PDF hunting</div></div>
+    <div class="metric fade-up d3"><div class="metric-val" style="color:var(--amber)">100%</div><div class="metric-label">Changes caught early</div><div class="metric-sub">Within 48 hours of update</div></div>
+  </div>
+</section>
+
+<div class="section-divider"><hr class="rule"></div>
+<section class="section" id="trust">
+  <div class="section-head">
+    <span class="sc">Trust &amp; security</span>
+    <h2>Built to earn <em>broker trust.</em></h2>
+    <p>We improve placement outcomes without exposing your relationships or your playbook.</p>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-cell fade-up"><div class="trust-icon">ð</div><div><h3>You own your data</h3><p>All submission data, outcomes, and placement history belong to your firm. We never sell broker data to carriers or third parties.</p></div></div>
+    <div class="trust-cell fade-up d1"><div class="trust-icon">ð¡</div><div><h3>Practice group isolation</h3><p>Your data is siloed at the database level. Other firms on Clearbound cannot see your placements or outcomes.</p></div></div>
+    <div class="trust-cell fade-up d2"><div class="trust-icon">ð</div><div><h3>Mutual NDA first</h3><p>We execute a mutual NDA before any data changes hands. Standard terms with IP protection and data ownership clauses.</p></div></div>
+    <div class="trust-cell fade-up d3"><div class="trust-icon">ð¤</div><div><h3>Export anytime</h3><p>You can export all your data at any time. If you cancel, you get a 90-day window to retrieve everything.</p></div></div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="quote-rule"></div>
+  <p class="quote">"Anyone can read underwriting guidelines.<br>Clearbound learns how they actually behave."</p>
+</section>
+
+<section class="cta-section" id="pilot">
+  <div class="cta-box">
+    <h2>Run a cyber pilot<br>with Clearbound.</h2>
+    <p>We're partnering with a small number of cyber practice groups for early deployments. Sixty-day pilot, defined success metrics, money-back guarantee.</p>
+    <a href="mailto:michael@clearbound.to" class="btn-primary">Request a pilot â</a>
+    <div class="cta-contact"><a href="mailto:michael@clearbound.to">michael@clearbound.to</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Clearbound. Cyber underwriting intelligence for brokers.</p>
+    <span class="footer-right">Know what changed. Submit with confidence.</span>
+  </div>
+</footer>
+
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.style.animationPlayState='running',observer.unobserve(e.target))})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(e=>{e.style.animationPlayState='paused';observer.observe(e)});
+</script>
+</body>
+</html>
